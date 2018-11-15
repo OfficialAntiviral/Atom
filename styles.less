@@ -1,0 +1,60 @@
+atom-text-editor {
+    /* show a dotted line underneath folded lines */
+    .fold-marker {
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            border-bottom: 1px dashed @syntax-invisible-character-color;
+        }
+    }
+
+    .editor {
+        .invisible-characters {
+            opacity: 1;
+        }
+    }
+
+    .line.cursor-line .fold-marker {
+        &::after {
+            color: @syntax-text-color;
+        }
+
+        &::before {
+            border-color: @syntax-text-color;
+        }
+    }
+    // Cursor style
+    .cursor {
+        // Makes the cursor pulse instead of blink
+        transition: opacity 0.2s;
+        border-color: #FF8300; // Light Orange
+        border-width: 3px;
+    }
+    // Makes the bracket matcher highlight more noticeable
+    .bracket-matcher .region {
+        border-bottom: 3px solid yellow;
+    }
+    // Highlights the cursor line
+    .cursor-line {
+        background-color: @background-color-highlight;
+    }
+    // Make fold arrows always visible
+    .line-number.foldable .icon-right {
+        visibility: visible;
+    }
+
+    .indent-guide-improved {
+        background-color: gray;
+
+        &.indent-guide-stack {
+            background-color: gray;
+
+            &.indent-guide-active {
+                background-color: cyan;
+            }
+        }
+    }
+}
